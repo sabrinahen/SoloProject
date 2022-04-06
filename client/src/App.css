@@ -1,4 +1,25 @@
-.App {
+.calendar-body {
+  width: 80%;
+  height: 50%;
+  margin: 50px auto;
+}
+
+.month {
+  text-align: center;
+  color: black;
+}
+
+.days {
+  text-align: center;
+  word-spacing: 100px;
+  font-size: larger;
+}
+
+.first-week{
+  text-align: center;
+  word-spacing: 100px;
+}
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +56,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

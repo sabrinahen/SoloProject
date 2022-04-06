@@ -4,10 +4,15 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Home = () => {
+
+    const current = new Date();
+    const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
+
     return (
         <div>
+            <h5>Today's date is {date}</h5>
             <div className="calendar-body">
-                <div className="month">June</div>
+                <div className="month"><h2>June</h2></div>
                 <div className="days">SUN MON TUE WED THUR FRI SAT</div>
                 <hr className="week-line"/>
 
