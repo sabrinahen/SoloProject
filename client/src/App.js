@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
 import Home from './components/Home';
+import LegDay1Vid from './components/LegDay1Vid';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
     <Home/>
     {/* <Navbar/> */}
+    {/* <LegDay1Vid /> */}
     <Routes>
         {/* <Route element={<LoginPage/>} path="/" /> */}
     </Routes>

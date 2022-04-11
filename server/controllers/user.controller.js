@@ -17,7 +17,7 @@ module.exports = {
         user.save()
             .then((newUser)=>{
                 console.log(newUser);
-                console.log("Successful Registered!")
+                console.log("Successfully Registered!")
                 res.json({
                     successMessage: "Thank you for registering",
                     user: newUser 

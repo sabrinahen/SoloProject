@@ -27,6 +27,7 @@ app.use(cookieParser())
 require("./config/mongoose.config")
 
 // require("./routes/movie.routes")(app)
+
 // Longhand:
 // const movieRoutes = require("./routes/movie.routes");
 // movieRoutes(app);
