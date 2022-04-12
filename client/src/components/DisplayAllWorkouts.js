@@ -56,12 +56,16 @@ const AllWorkouts = (props) => {
                     >
                         <Link to={`/user/profile/${workout.createdBy?.username}`}>{workout.createdBy?.username}</Link>
                         <p>{workout.completion}</p>
-                        <br/>
                         <p>{workout.completionMessage}</p>
                         <br/>
                         {
                             workout.recipeName?
-                            <p>{workout.createdBy?.username} made something new today!</p>
+                            <p>I made something new today!</p>
+                            :null
+                        }
+                        {
+                            workout.audioName?
+                            <p>I listened to something new today!</p>
                             :null
                         }
                         <Link to={`/workout/${workout._id}`}>See More</Link>
@@ -81,4 +85,4 @@ const AllWorkouts = (props) => {
 
 
 
-export default AllMovies;
+export default AllWorkouts;
