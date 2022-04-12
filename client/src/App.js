@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
 import Home from './components/Home';
 import LegDay1Vid from './components/LegDay1Vid';
+import NewWorkoutForm from './components/NewWorkoutForm';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Home/>
     {/* <Navbar/> */}
     {/* <LegDay1Vid /> */}
+    <NewWorkoutForm />
     <Routes>
         {/* <Route element={<LoginPage/>} path="/" /> */}
     </Routes>
