@@ -113,7 +113,44 @@ module.exports = {
                 })
         }
 
-    }
+    },
+
+    // findOneWorkoutsByUser: (req, res)=>{
+
+    //     if(req.jwtpayload.username !== req.params.username){
+    //         console.log("not the user");
+
+    //         User.findOne({username: req.params.username})
+    //             .then((userNotLoggedIn)=>{
+    //                 Workout.findOne({createdBy: userNotLoggedIn._id})
+    //                     .populate("createdBy", "username")
+    //                     .then((oneWorkoutsFromUser)=>{
+    //                         console.log(oneWorkoutsFromUser);
+    //                         res.json(oneWorkoutsFromUser);
+    //                     })
+    //             })
+    //             .catch((err)=>{
+    //                 console.log(err);
+    //                 res.status(400).json(err);
+    //             })
+    //     }
+
+    //     else{
+    //         console.log("current user")
+    //         console.log("req.jwtpayload.id:", req.jwtpayload.id);
+    //         Workout.findOne({ createdBy: req.jwtpayload.id })
+    //             .populate("createdBy", "username")
+    //             .then((allWorkoutsFromLoggedInUser) => {
+    //                 console.log(allWorkoutsFromLoggedInUser);
+    //                 res.json(allWorkoutsFromLoggedInUser);
+    //             })
+    //             .catch((err) => {
+    //                 console.log(err);
+    //                 res.status(400).json(err);
+    //             })
+    //     }
+
+    // }
 
 
 }

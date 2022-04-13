@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const EditWorkoutForm = (props) => {
 
-    const [completion, setCompletion] = useState("");
-    const [completionMessage, setCompletionMessage] = useState("");
-    const [recipeName, setRecipeName] = useState("");
-    const [recipeLink, setRecipeLink] = useState("");
-    const [audioType, setAudioType] = useState("");
-    const [audioName, setAudioName] = useState("");
-    const [audioLink, setAudioLink] = useState("");
+    const [completion, setCompletion] = useState();
+    const [completionMessage, setCompletionMessage] = useState();
+    const [recipeName, setRecipeName] = useState();
+    const [recipeLink, setRecipeLink] = useState();
+    const [audioType, setAudioType] = useState();
+    const [audioName, setAudioName] = useState();
+    const [audioLink, setAudioLink] = useState();
 
     const [errors, setErrors] = useState({});
 
     const { id } = useParams();
 
-    const navigate = useNavigate();useEffect(()=>{
+    const navigate = useNavigate();
+    
+    useEffect(()=>{
         axios.get(`http://localhost:8000/api/workouts/${id}`)
             .then((res)=>{
                 console.log(res);
@@ -37,7 +39,7 @@ const EditWorkoutForm = (props) => {
     const submitHandler = (e)=> {
         e.preventDefault();
 
-        axios.post("http://localhost:8000/api/workouts",
+        axios.put(`http://localhost:8000/api/workouts/${id}`,
         {
             completion,
             completionMessage,
@@ -50,7 +52,7 @@ const EditWorkoutForm = (props) => {
         .then((res)=>{
             console.log(res);
             console.log(res.data);
-            navigate("/workouts/id")
+            navigate("/workouts")
             // FIX THE NAVIGATE TO BRING IT TO DISPLAY 1 PAGE
         })
         .catch ((err)=>{

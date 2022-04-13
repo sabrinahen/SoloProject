@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom"
 
 const NewWorkoutForm = (props) => {
 
-    const [completion, setCompletion] = useState("");
-    const [completionMessage, setCompletionMessage] = useState("");
-    const [recipeName, setRecipeName] = useState("");
-    const [recipeLink, setRecipeLink] = useState("");
-    const [audioType, setAudioType] = useState("");
-    const [audioName, setAudioName] = useState("");
-    const [audioLink, setAudioLink] = useState("");
+    const [completion, setCompletion] = useState();
+    const [completionMessage, setCompletionMessage] = useState();
+    const [recipeName, setRecipeName] = useState();
+    const [recipeLink, setRecipeLink] = useState();
+    const [audioType, setAudioType] = useState();
+    const [audioName, setAudioName] = useState();
+    const [audioLink, setAudioLink] = useState();
 
     const [errors, setErrors] = useState({});
 
@@ -29,11 +29,13 @@ const NewWorkoutForm = (props) => {
             audioType,
             audioName,
             audioLink
-        })
+        }, 
+        { withCredentials: true }
+        )
         .then((res)=>{
             console.log(res);
             console.log(res.data);
-            navigate("/")
+            navigate("/workouts")
         })
         .catch ((err)=>{
             console.log(err);

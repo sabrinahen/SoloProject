@@ -126,6 +126,16 @@ module.exports = {
             })
     },
 
-
+    // findOneUser: (req, res)=>{
+    //     User.findOne({ _id: req.params.username })
+    //         .then((oneUser)=>{
+    //             console.log(oneUser);
+    //             res.json(oneUser);
+    //         })
+    //         .catch((err)=>{
+    //             console.log("Find One User failed");
+    //             res.json({ message: "Something went wrong in findOneUser", error: err })
+    //         })
+    // }
 
 }

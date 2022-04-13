@@ -48,7 +48,7 @@ const AllWorkouts = (props) => {
 
 
     return (
-        <div>
+        <div style={{textAlign: "center"}}>
             {
                 workoutList.map((workout, index) => (
                     <div
@@ -57,7 +57,6 @@ const AllWorkouts = (props) => {
                         <Link to={`/user/profile/${workout.createdBy?.username}`}>{workout.createdBy?.username}</Link>
                         <p>{workout.completion}</p>
                         <p>{workout.completionMessage}</p>
-                        <br/>
                         {
                             workout.recipeName?
                             <p>I made something new today!</p>
@@ -69,9 +68,6 @@ const AllWorkouts = (props) => {
                             :null
                         }
                         <Link to={`/workout/${workout._id}`}>See More</Link>
-                        <button onClick={()=>deleteWorkout(workout._id)} >Delete</button>
-                        <Link to={`/workout/edit/${workout._id}`}>Edit</Link>
-
                     </div>
 
                 ))

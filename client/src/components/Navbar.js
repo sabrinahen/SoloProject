@@ -4,7 +4,41 @@ import {Link, useNavigate} from "react-router-dom";
 
 const Navbar = (props) => {
 
+    const [user, setUser]= useState("")
 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/users",
+            { withCredentials: true }
+        )
+            .then((res) => {
+                console.log(res.data);
+                setUser(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [])
+
+    const logout = (e) => {
+        axios
+            .post(
+                "http://localhost:8000/api/users/logout",
+                {},
+                {
+                    withCredentials: true,
+                },
+            )
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+                navigate("/");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     return(
         <div className="navbar">
@@ -16,8 +50,7 @@ const Navbar = (props) => {
             <div className="nav-bottom">
                 <div className="nav-bottom-left">
                     <h5><Link to={"/"}>Home</Link></h5>
-                    {/* <h5><Link to={""}>My Activity</Link></h5> */}
-                    {/* <h5><Link to={""}>Community</Link></h5> */}
+                    <button onClick={logout}>Logout</button>
                 </div>
                 <div className="nav-bottom-right">
                     {/* <h5><Link to={""}>Logout</Link></h5> */}
