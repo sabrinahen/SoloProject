@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const WorkoutSchema = new mongoose.SchemaType({
+const WorkoutSchema = new mongoose.Schema({
 
     completion: {
         type: String, 
@@ -53,6 +53,4 @@ const WorkoutSchema = new mongoose.SchemaType({
     }
 }, {timestamps: true})
 
-const Workout = mongoose.model("Workout", WorkoutSchema);
-
-module.exports = Workout;
+module.exports = mongoose.model("Workout", WorkoutSchema);

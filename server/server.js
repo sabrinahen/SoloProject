@@ -28,9 +28,6 @@ require("./config/mongoose.config")
 
 require("./routes/workout.routes")(app)
 
-// Longhand:
-// const movieRoutes = require("./routes/movie.routes");
-// movieRoutes(app);
 require("./routes/user.routes")(app)
 
 
