@@ -35,7 +35,7 @@ const NewWorkoutForm = (props) => {
         .then((res)=>{
             console.log(res);
             console.log(res.data);
-            navigate("/workouts")
+            navigate("/community")
         })
         .catch ((err)=>{
             console.log(err);

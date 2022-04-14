@@ -9,16 +9,29 @@
   color: black;
 }
 
+.white {
+  color: white;
+}
+
 .days {
   text-align: center;
-  word-spacing: 100px;
-  font-size: larger;
+  display: flex;
+  justify-content: space-around;
 }
 
 .first-week{
   text-align: center;
-  word-spacing: 100px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
 }
+
+.second-week{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
 /* .App {
   text-align: center;
 }

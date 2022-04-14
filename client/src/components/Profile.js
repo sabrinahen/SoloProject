@@ -32,7 +32,7 @@ useEffect(()=>{
 
     return(
         <div style={{ textAlign: "center" }}>
-            <h1>Welcome {username}</h1>
+            <h1>{username}'s Activity</h1>
 
             {
                 userWorkoutList.map((workout, index) => (

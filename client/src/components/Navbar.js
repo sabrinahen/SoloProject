@@ -49,11 +49,13 @@ const Navbar = (props) => {
             </div>
             <div className="nav-bottom">
                 <div className="nav-bottom-left">
+                    <h5>Hello, {user.username}</h5>
                     <h5><Link to={"/"}>Home</Link></h5>
-                    <button onClick={logout}>Logout</button>
+                    <h5><Link to={`/user/profile/${user.username}`}>My Activity</Link></h5>
+                    <h5><Link to={"/community"}>Community</Link></h5>
                 </div>
                 <div className="nav-bottom-right">
-                    {/* <h5><Link to={""}>Logout</Link></h5> */}
+                    <button onClick={logout}>Logout</button>
                 </div>
             </div>
         </div>

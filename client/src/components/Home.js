@@ -13,26 +13,37 @@ const Home = () => {
             <h5>Today's date is {date}!</h5>
             <div className="calendar-body">
                 <div className="month"><h2>June</h2></div>
-                <div className="days">SUN MON TUE WED THUR FRI SAT</div>
+                <div className="days">
+                <div>SUN</div>
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THUR</div>
+                <div>FRI</div>
+                <div>SAT</div>
+                </div>
                 <hr className="week-line"/>
 
                 {/* first week */}
-                <div className="first-week"><span className="white">29 30 32</span>
-                <a href='/'>1</a>
-                <a href='/'>2</a>
-                <a href='/'>3</a>
-                <a href='/'>4</a>
+                <div className="first-week">
+                    <div className="white">29</div>
+                    <div className="white">30</div>
+                    <div className="white">31</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
                 </div>
 
                 {/* second week */}
                 <div className='second-week'>
-                <a href='/'>5</a>
-                <a href='/'>6</a>
-                <a href='/'>7</a>
-                <a href='/'>8</a>
-                <a href='/'>9</a>
-                <a href='/'>10</a>
-                <a href='/'>11</a>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
                 </div>
 
                 {/* third week */}
