@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* background-color: #ffe4e1; */
+}
+
+.main {
+  background-color: #ffddf4;
+}
+
+/* CALENDAR */
+
 .calendar-body {
   width: 80%;
   height: 50%;
@@ -31,6 +46,136 @@
   display: flex;
   justify-content: space-around;
 }
+
+/* NAVBAR TOP */
+.nav-top {
+  background-color: #FFB6C1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: 60px; 
+  padding: 10px;
+  padding-top: 15px;
+}
+
+.project-title {
+  font-size: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin: 10px 15px;
+}
+
+/* NAVBAR BOTTOM*/
+.nav-bottom {
+  background-color: #FFB6C1;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  height: 60px; 
+}
+
+.nav-bottom-left {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  align-items: center;
+  /* padding: 10px; */
+  margin: 0px  15px;
+  text-decoration: none;
+  font-size: 20px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: #f2f2f2;
+  /* margin: 5px 0px; */
+}
+
+.nav-bottom-left .link:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.hello {
+  font-weight: 800;
+  color: black;
+}
+
+.nav-bottom-left .link:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.nav-bottom-right {
+  width: 20%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 15px;
+  /* margin-left: 1000px; */
+}
+
+.log-out-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+  color: #f2f2f2;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.log-out-button:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+/* WORKOUT VIDS */
+.workout-title{
+  text-align: center;
+  margin: 30px 10px;
+  text-decoration: underline;
+}
+
+.vid-top-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.vid-bottom-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.exercise {
+  width: 25%;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.exercise h1 {
+  text-align: center;
+}
+
+.exercise:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cardio {
+  text-align: center;
+  
+}
+
+
 
 /* .App {
   text-align: center;

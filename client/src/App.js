@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
-import Home from './components/Home';
+import Home from './views/Home';
 import LegDay1Vid from './components/LegDay1Vid';
 import NewWorkoutForm from './components/NewWorkoutForm';
 import OneWorkout from './components/DisplayOneWorkout';
