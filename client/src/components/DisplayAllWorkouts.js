@@ -49,13 +49,13 @@ const AllWorkouts = (props) => {
 
     return (
         <div style={{textAlign: "center"}}>
-            <h1>Community</h1>
+            <h1 style={{marginTop: "15px", marginBottom: "15px"}}>Community</h1>
             {
                 workoutList.map((workout, index) => (
                     <div className="display-all"
                         key={workout._id}
                     >
-                        <Link to={`/user/profile/${workout.createdBy?.username}`}>{workout.createdBy?.username}</Link>
+                        <p><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="10" height="10"/><Link to={`/user/profile/${workout.createdBy?.username}`} className="username-link">{workout.createdBy?.username}</Link><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="10" height="10"/></p>
                         <p>{workout.completion}</p>
                         <p>{workout.completionMessage}</p>
                         {

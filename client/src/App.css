@@ -253,6 +253,7 @@
 textarea {
   resize: none;
   border: 1px solid black;
+  padding: 2px;
 }
 
 .workout-button {
@@ -274,7 +275,17 @@ textarea {
 
 /* DISPLAY ALL */
 .display-all {
-  
+  border: 5px solid #FFB6C1;
+  width: 30%;
+  border-radius: 25px;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+  /* text-decoration: none; */
+}
+
+.username-link {
+  color: #FFB6C1;
 }
 
 /* .App {
