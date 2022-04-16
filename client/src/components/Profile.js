@@ -36,7 +36,7 @@ useEffect(()=>{
 
             {
                 userWorkoutList.map((workout, index) => (
-                    <div key={index}>
+                    <div key={index} style={{border: "1px black solid"}}>
                         <p>{workout.completionMessage}</p>
                         <p>{workout.recipeName}</p>
                         <p>{workout.recipeLink}</p>

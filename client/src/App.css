@@ -11,6 +11,55 @@
   background-color: #ffddf4;
 }
 
+/* LOGIN PAGE */
+.log-reg-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-body{
+  font-family: 'Poppins', sans-serif;
+  height: 20%;
+  text-align: center;
+  display: grid;
+}
+
+.title{
+  color: #FFB6C1;
+  text-transform: uppercase;
+  line-height: 40px;
+  font-weight: 300;
+}
+.title-content{
+  display: block; /*Makes each line of text inside of the span 100% width so it will fall on the next line.*/
+  opacity: 0;
+  animation: revealText .5s forwards; /*Adding the animation over .5 seconds. Forwards means the last state will be the styles applied at 100% (to).*/
+}
+/*Adding individual animation delays so that the text animates in at different stages.*/
+.title-second{
+  animation-delay: .2s;
+}
+.title-third{
+  animation-delay: .35s;
+}
+.title-fourth{
+  animation-delay: .5s;
+}
+/*From and to is just another way of saying start at 0 and end at 100%.*/
+@keyframes revealText {
+  from{
+      transform: translateY(20px); /*Moves the element down by 20px.*/
+  }
+  to{
+      opacity: 1; /*Turn the opacity back on so that we can see the element in it's final animation state.*/
+      transform: none; /*Removes the 20px so that the text will be at the normal starting position at the end of the animation.*/
+  }
+}
+
+.log-reg-form {
+
+}
+
 /* CALENDAR */
 
 .calendar-body {
@@ -139,6 +188,7 @@
   text-align: center;
   margin: 30px 10px;
   text-decoration: underline;
+  color: #FFB6C1;
 }
 
 .vid-top-row {
@@ -160,6 +210,7 @@
   box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   margin-bottom: 20px;
+  /* color: #FFB6C1; */
 }
 
 .exercise h1 {
@@ -172,10 +223,54 @@
 
 .cardio {
   text-align: center;
-  
+  color: #FFB6C1;
 }
 
+/* REST DAY */
+.rest-day {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 60px;
+  color: #FFB6C1;
+}
 
+/* WORKOUT FORM */
+.workout-form {
+  display: flex;
+  justify-content: center;
+  /* margin: 30px;
+  padding: 20px; */
+}
+
+.exercise-form {
+  text-align: center;
+  margin: 30px;
+  font-size: 20px;
+  width: 30%;
+  /* border: 1px solid black; */
+}
+
+textarea {
+  resize: none;
+  border: 1px solid black;
+}
+
+.workout-button {
+  font-size: 25px;
+  text-decoration: none;
+  width: 30%;
+  text-align: center;
+  margin-left: 35%;
+  background-color: #FFB6C1;
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.workout-button:hover {
+  box-shadow: 0 8px 6px 0 rgba(0,0,0,0.2);
+}
 
 /* .App {
   text-align: center;

@@ -39,7 +39,7 @@ const Register = (props) => {
                     confirmPassword: "",
                 });
                 setConfirmReg(
-                    "Thank you for Registering, you can now log in!",
+                    "Thank you for joining our community! Click here to log in!",
                 );
                 setErrors({});
             })
@@ -52,70 +52,80 @@ const Register = (props) => {
 
 
     return (
-        <div>
+        <div className="log-reg-page">
+            <div className="title-body"> 
+            <h1 class="title">
+                <span class="title-content">Improve Yourself</span>
+                <span class="title-content title-second">With Others</span>
+                <span class="title-content title-third">Join Our Community</span>
+                <span class="title-content title-fourth">At FitGirl Summer</span>
+            </h1>
+            </div>
 
             <h1>Register</h1>
-            {confirmReg ? <h4 style={{ color: "green" }}>{confirmReg}</h4> : null}
-            <form onSubmit={register}>
-                <div>
-                    <label>Username</label>
-                    {errors.username ? (
-                        <span className="error-text">
-                            {errors.username.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="text"
-                        name="username"
-                        value={user.username}
-                        //long hand notation
-                        onChange={(e) => handleChange(e)}
-                    />
-                </div>
-                <div>
-                    <label>Email</label>
-                    {errors.email ? (
-                        <span className="error-text">{errors.email.message}</span>
-                    ) : null}
-                    <input
-                        type="email"
-                        name="email"
-                        value={user.email}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Password</label>
-                    {errors.password ? (
-                        <span className="error-text">
-                            {errors.password.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="password"
-                        name="password"
-                        value={user.password}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Confirm Password</label>
-                    {errors.confirmPassword ? (
-                        <span className="error-text">
-                            {errors.confirmPassword.message}
-                        </span>
-                    ) : null}
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        value={user.confirmPassword}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="center">
-                    <button>Register Me</button>
-                </div>
-            </form>
+            {confirmReg ? <h4 style={{ color: "#FFB6C1" }}>{confirmReg}</h4> : null}
+            <div className="log-reg-form">
+                <form onSubmit={register}>
+                    <div>
+                        <label>Username</label>
+                        {errors.username ? (
+                            <span className="error-text">
+                                {errors.username.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="text"
+                            name="username"
+                            value={user.username}
+                            //long hand notation
+                            onChange={(e) => handleChange(e)}
+                        />
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        {errors.email ? (
+                            <span className="error-text">{errors.email.message}</span>
+                        ) : null}
+                        <input
+                            type="email"
+                            name="email"
+                            value={user.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        {errors.password ? (
+                            <span className="error-text">
+                                {errors.password.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="password"
+                            name="password"
+                            value={user.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Confirm Password</label>
+                        {errors.confirmPassword ? (
+                            <span className="error-text">
+                                {errors.confirmPassword.message}
+                            </span>
+                        ) : null}
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            value={user.confirmPassword}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="center">
+                        <button>Register Me</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

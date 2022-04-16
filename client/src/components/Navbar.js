@@ -43,9 +43,9 @@ const Navbar = (props) => {
     return(
         <div className="navbar">
             <div className="nav-top">
-                <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="50" height="60"/>
+                <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="60" height="60"/>
                 <h3 className="project-title">FitGirl Summer</h3>
-                <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="50" height="60"/>
+                <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="60" height="60"/>
             </div>
             <div className="nav-bottom">
                 <div className="nav-bottom-left">

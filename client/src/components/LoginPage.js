@@ -33,7 +33,17 @@ const LoginPage = () => {
     };
     
     return (
-        <div>
+        <div >
+            <div className="title-body"> 
+            <h1 class="title">
+                <span class="title-content">Improve Yourself</span>
+                <span class="title-content title-second">With Others</span>
+                <span class="title-content title-third">Join FitGirl Summer</span>
+                <span class="title-content title-fourth">Today</span>
+            </h1>
+            </div>
+
+            <div className="log-reg-form">
             <form onSubmit={login}>
                 <div>
                     <label>Email: </label>
@@ -56,6 +66,7 @@ const LoginPage = () => {
                 <button>Sign In!</button>
                 <h2><Link to={"/register"}>Don't have an account? Click here to join the community!</Link></h2>
             </form>
+            </div>
         </div>
     )
 }

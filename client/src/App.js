@@ -16,6 +16,8 @@ import Arms1 from './views/Arms1';
 import HIIT1 from './views/HIIT1';
 import Community from './views/Community';
 import RestDayForm from './components/RestDayForm';
+import RestDay from './views/RestDay';
+import ProfilePage from './views/ProfilePage'
 
 
 
@@ -32,8 +34,8 @@ function App() {
         <Route element={<Legs2/>} path="/workout/legs2"/>
         <Route element={<Arms1/>} path="/workout/arms1"/>
         <Route element={<HIIT1/>} path="/workout/hiit1"/>
-        <Route element={<RestDayForm/>} path="/workout/restday"/>
-        <Route element={<Profile />} path="/user/profile/:username"/>
+        <Route element={<RestDay/>} path="/workout/restday"/>
+        <Route element={<ProfilePage />} path="/user/profile/:username"/>
         <Route element={<NewWorkoutForm/>} path="/workout/new"/>
         <Route element={<EditWorkoutForm/>} path="/workout/edit/:id"/>
         <Route element={<Community/>} path="/community" />

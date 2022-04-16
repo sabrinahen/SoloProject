@@ -50,9 +50,11 @@ const NewWorkoutForm = (props) => {
     return (
         <div> 
             <form onSubmit={submitHandler}>
-                <h3>How did it go?</h3>
+                <div className="workout-form">
+                <div className="exercise-form">
+                <h5>How did it go?</h5>
                 <div>
-                    <select value={completion} name="completion" onChange={(e)=>setCompletion(e.target.value)}>
+                    <select style={{ marginBottom: "10px"}} value={completion} name="completion" onChange={(e)=>setCompletion(e.target.value)}>
                         <option defaultValue hidden>Select an Option</option>
                         <option value="I completed my workout!">I completed my workout!</option>
                         <option value="I did some of my workout!">I did some of my workout!</option>
@@ -65,24 +67,25 @@ const NewWorkoutForm = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Tell us how your workout and/or day went!</label>
-                    <input type="text" value={completionMessage} onChange={(e)=>setCompletionMessage(e.target.value)}/>
+                    <h6>Tell us how your workout and/or day went!</h6>
+                    <textarea rows="3" cols="32" value={completionMessage} onChange={(e)=>setCompletionMessage(e.target.value)}></textarea>
                     {
                         errors.completionMessage?
-                        <p>{errors.completionMessage.message}</p>
+                        <p style={{ color: "#FFB6C1", fontSize: "10px" }}>{errors.completionMessage.message}</p>
                         :null
                     }
                 </div>
-                <div>
+                </div>
+                <div className="exercise-form">
                     <h5>Share the healthy recipe you made today!</h5>
-                    <label>Name of Recipe:</label>
+                    <h6>Name of Recipe:</h6>
                     <input type="text" value={recipeName} onChange={(e)=>setRecipeName(e.target.value)}/>
                     {
                         errors.recipeName?
                         <p>{errors.recipeName.message}</p>
                         :null
                     }
-                    <label>Link:</label>
+                    <h6>Link:</h6>
                     <input type="text" value={recipeLink} onChange={(e)=>setRecipeLink(e.target.value)}/>
                     {
                         errors.recipeLink?
@@ -90,7 +93,7 @@ const NewWorkoutForm = (props) => {
                         :null
                     }
                 </div>
-                <div>
+                <div className="exercise-form">
                     <h5>What did you listen to?</h5>
                     <select value={audioType} onChange={(e)=>setAudioType(e.target.value)}>
                         <option defaultValue hidden>Select an Option</option>
@@ -99,14 +102,14 @@ const NewWorkoutForm = (props) => {
                         <option value="Audiobook">Audiobook</option>
                         <option value="Podcast">Podcast</option>
                     </select>
-                    <label>Name:</label>
+                    <h6>Name:</h6>
                     <input type="text" value={audioName} onChange={(e)=>setAudioName(e.target.value)}/>
                     {
                         errors.audioName?
                         <p>{errors.audioName.message}</p>
                         :null
                     }
-                    <label>Link:</label>
+                    <h6>Link:</h6>
                     <input type="text" value={audioLink} onChange={(e)=>setAudioLink(e.target.value)}/>
                     {
                         errors.audioLink?
@@ -115,8 +118,10 @@ const NewWorkoutForm = (props) => {
                     }
                 </div>
                 <div>
-                    <button>Post</button>
+                    
                 </div>
+                </div>
+                <button className="workout-button">Post</button>
             </form>
         </div>
     )

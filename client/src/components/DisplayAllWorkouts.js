@@ -49,9 +49,10 @@ const AllWorkouts = (props) => {
 
     return (
         <div style={{textAlign: "center"}}>
+            <h1>Community</h1>
             {
                 workoutList.map((workout, index) => (
-                    <div
+                    <div className="display-all"
                         key={workout._id}
                     >
                         <Link to={`/user/profile/${workout.createdBy?.username}`}>{workout.createdBy?.username}</Link>
