@@ -41,6 +41,7 @@ module.exports = {
 
     findOneWorkout: (req, res)=>{
         Workout.findOne({ _id: req.params.id })
+        .populate("createdBy", "username email")
             .then((oneWorkout)=>{
                 console.log(oneWorkout);
                 res.json(oneWorkout);
@@ -56,6 +57,7 @@ module.exports = {
             req.body,
             {new: true, runValidators: true}
             )
+            .populate("createdBy", "username email")
             .then((updatedWorkout)=>{
                 console.log(updatedWorkout)
                 res.json(updatedWorkout)
@@ -115,7 +117,7 @@ module.exports = {
 
     },
 
-    // findOneWorkoutsByUser: (req, res)=>{
+    // findOneWorkoutByUser: (req, res)=>{
 
     //     if(req.jwtpayload.username !== req.params.username){
     //         console.log("not the user");

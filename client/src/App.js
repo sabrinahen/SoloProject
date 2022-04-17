@@ -17,7 +17,9 @@ import HIIT1 from './views/HIIT1';
 import Community from './views/Community';
 import RestDayForm from './components/RestDayForm';
 import RestDay from './views/RestDay';
-import ProfilePage from './views/ProfilePage'
+import ProfilePage from './views/ProfilePage';
+import SelectOneWorkout from './views/SelectOneWorkout';
+import EditForm from './views/EditForm';
 
 
 
@@ -37,9 +39,9 @@ function App() {
         <Route element={<RestDay/>} path="/workout/restday"/>
         <Route element={<ProfilePage />} path="/user/profile/:username"/>
         <Route element={<NewWorkoutForm/>} path="/workout/new"/>
-        <Route element={<EditWorkoutForm/>} path="/workout/edit/:id"/>
+        <Route element={<EditForm/>} path="/workout/edit/:id"/>
         <Route element={<Community/>} path="/community" />
-        <Route element={<OneWorkout/>} path="/workout/:id" />
+        <Route element={<SelectOneWorkout/>} path="/workout/:id" />
     </Routes>
     </div>
     </BrowserRouter>

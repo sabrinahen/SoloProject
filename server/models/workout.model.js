@@ -30,10 +30,10 @@ const WorkoutSchema = new mongoose.Schema({
     audioType: {
         type: String,
         enum: [
-            "Playlist",
-            "Song",
-            "Audiobook",
-            "Podcast"
+            "playlist",
+            "song",
+            "audiobook",
+            "podcast"
         ]
     },
 
@@ -45,6 +45,11 @@ const WorkoutSchema = new mongoose.Schema({
     audioLink: {
         type: String,
         minLength: [2, "The recipe name needs more than 2 characters!"]
+    },
+
+    likes: {
+        type: Number,
+        default: 0
     },
 
     createdBy: {

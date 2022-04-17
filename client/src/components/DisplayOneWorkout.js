@@ -30,7 +30,7 @@ const OneWorkout = () => {
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
-                navigate("/workouts")
+                navigate("/community")
                 
             })
             .catch((err) => console.log(err))
@@ -48,48 +48,37 @@ const OneWorkout = () => {
                 console.log(err);
             })
     }, [])
-
-    // useEffect(()=>{
-    //     axios.get(`http://localhost:8000/api/workoutbyuser/${username}`,
-    //         { withCredentials: true }
-    //     )
-    //         .then((res)=>{
-    //             console.log(res.data);
-    //             setUser(res.data);
-    //         })
-    //         .catch((err)=>{
-    //             console.log(err)
-    //         })
-        
     
-    
-    // }, [])
-
-    // useEffect(()=>{
-    //     axios.get(`http://localhost:8000/api/user/${id}`)
-    //         .then ((res)=> {
-    //             console.log(res);
-    //             console.log(res.data);
-    //             setUser(res.data)
-    //         })
-    //         .catch((err)=>{
-    //             console.log(err)
-    //             navigate("/error")
-    //         })
-    // }, [id])
-
 
     return (
-        <div>
-            <Link to={`/user/profile/${workout.createdBy?.id}`}><p>{workout.createdBy?.username}</p></Link>
-            <p>{workout.completion}</p>
-            <p>{workout.completionMessage}</p>
-            <p>Here's the new recipe I made!</p>
-            <p>{workout.recipeName}: {workout.recipeLink}</p>
-            <p>This is the {workout.audioType} that powered my workout!</p>
-            <p>{workout.audioName}: {workout.audioLink}</p>
-            <button><Link to={`/workout/edit/${workout._id}`}>Edit</Link></button>
-            <button onClick={()=>deleteOneWorkout(workout._id)} >Delete</button>
+        <div className="display-one">
+            <p><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="20" height="20"/><Link to={`/user/profile/${workout.createdBy?.username}`} className="username-link" style={{fontWeight:"bolder", fontSize:"30px"}}> {workout.createdBy?.username} </Link><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="20" height="20"/></p>
+            <p style={{fontSize:"13px"}}>{new Date(workout.createdAt).toLocaleString()}</p>
+            <p style={{fontWeight:"bolder"}}>{workout.completionMessage}</p>
+            {
+                workout.recipeName?
+                <p>Here's the <a href="{workout.recipeLink}">{workout.recipeName}</a> I made!</p>
+                :null
+            }
+            {
+                workout.audioType?
+                <p>This is the {workout.audioType} that powered my workout!</p>
+                :null
+            }
+            {
+                workout.audioName?
+                    <p><a href="{workout.audioLink}">{workout.audioName}</a></p>
+                    :null
+            }
+            {
+                workout.createdBy?._id===user._id?
+                    <div>
+                        <button onClick={()=>deleteOneWorkout(workout._id)} className="display-one-buttons">Delete</button>
+                        <button className="display-one-buttons"><Link to={`/workout/edit/${workout._id}`} className="display-one-buttons" style={{color: "white"}}>Edit</Link></button>
+                    </div>
+                    :null
+            }
+            {/* <div className="heart-shape"></div> */}
         </div>
     )
 }

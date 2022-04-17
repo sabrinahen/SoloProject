@@ -42,13 +42,18 @@ const Navbar = (props) => {
 
     return(
         <div className="navbar">
-            <div className="nav-top">
+            {/* <div className="nav-top">
                 <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="60" height="60"/>
                 <h3 className="project-title">FitGirl Summer</h3>
                 <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="60" height="60"/>
-            </div>
+            </div> */}
             <div className="nav-bottom">
                 <div className="nav-bottom-left">
+                    <div className="nav-logo">
+                        <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="30" height="30"/>
+                        <h5 style={{paddingRight: "20px", paddingLeft:"20px"}}>FitGirl Summer</h5>
+                        <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="30" height="30"/>
+                </div>
                     <h5 className="hello">Hello, {user.username}!</h5>
                     <h5><Link to={"/home"} className="link">Home</Link></h5>
                     <h5><Link to={`/user/profile/${user.username}`} className="link">My Activity</Link></h5>

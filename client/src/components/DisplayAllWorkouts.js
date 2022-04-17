@@ -51,13 +51,21 @@ const AllWorkouts = (props) => {
         <div style={{textAlign: "center"}}>
             <h1 style={{marginTop: "15px", marginBottom: "15px"}}>Community</h1>
             {
-                workoutList.map((workout, index) => (
+                workoutList.slice(0).reverse().map((workout, index) => (
                     <div className="display-all"
                         key={workout._id}
                     >
-                        <p><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="10" height="10"/><Link to={`/user/profile/${workout.createdBy?.username}`} className="username-link">{workout.createdBy?.username}</Link><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="10" height="10"/></p>
+                        <p><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="20" height="20"/><Link to={`/user/profile/${workout.createdBy?.username}`} className="username-link" style={{fontSize:"25px"}}>
+                        {
+                            workout.createdBy?._id===user._id?
+                            <span>You:</span>
+                            :workout.createdBy?.username
+                        }
+                            
+                            </Link><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="20" height="20"/></p>
+                        <p style={{fontSize:"12px"}}>{new Date(workout.createdAt).toLocaleString()}</p>
                         <p>{workout.completion}</p>
-                        <p>{workout.completionMessage}</p>
+                        <p style={{fontWeight:"bolder"}}>{workout.completionMessage}</p>
                         {
                             workout.recipeName?
                             <p>I made something new today!</p>
@@ -83,3 +91,4 @@ const AllWorkouts = (props) => {
 
 
 export default AllWorkouts;
+

@@ -12,6 +12,8 @@ const EditWorkoutForm = (props) => {
     const [audioName, setAudioName] = useState();
     const [audioLink, setAudioLink] = useState();
 
+    const [user, setUser] = useState({});
+    const [workout, setWorkout] = useState([]);
     const [errors, setErrors] = useState({});
 
     const { id } = useParams();
@@ -34,7 +36,31 @@ const EditWorkoutForm = (props) => {
             .catch((err)=>console.log(err))
     },[id])
 
+    useEffect(()=>{
+        axios.get(`http://localhost:8000/api/workouts/${id}`)
+            .then ((res)=> {
+                console.log(res);
+                console.log(res.data);
+                setWorkout(res.data)
+            })
+            .catch((err)=>{
+                console.log(err)
+                navigate("/error")
+            })
+    }, [id])
 
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/users",
+            { withCredentials: true }
+        )
+            .then((res) => {
+                console.log(res.data);
+                setUser(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [])
 
     const submitHandler = (e)=> {
         e.preventDefault();
@@ -52,7 +78,7 @@ const EditWorkoutForm = (props) => {
         .then((res)=>{
             console.log(res);
             console.log(res.data);
-            navigate("/workouts")
+            navigate(`/user/profile/${workout.createdBy?.username}`)
             // FIX THE NAVIGATE TO BRING IT TO DISPLAY 1 PAGE
         })
         .catch ((err)=>{
@@ -66,8 +92,9 @@ const EditWorkoutForm = (props) => {
     }
 
     return (
-        <div> 
-            <form onSubmit={submitHandler}>
+        <div>
+            <h1 style={{marginTop: "15px", marginBottom: "15px", textAlign: "center"}}>Edit Post</h1> 
+            <form onSubmit={submitHandler} className="edit-form">
                 <h3>How did it go?</h3>
                 <div>
                     <select value={completion} name="completion" onChange={(e)=>setCompletion(e.target.value)}>
@@ -83,8 +110,8 @@ const EditWorkoutForm = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Tell us how your workout and/or day went!</label>
-                    <input type="text" value={completionMessage} onChange={(e)=>setCompletionMessage(e.target.value)}/>
+                    <h3>Tell us how your workout and/or day went!</h3>
+                    <textarea rows="3" cols="32" value={completionMessage} onChange={(e)=>setCompletionMessage(e.target.value)}/>
                     {
                         errors.completionMessage?
                         <p>{errors.completionMessage.message}</p>
@@ -92,48 +119,48 @@ const EditWorkoutForm = (props) => {
                     }
                 </div>
                 <div>
-                    <h5>Share the healthy recipe you made today!</h5>
-                    <label>Name of Recipe:</label>
+                    <h3>Share the healthy recipe you made today!</h3>
+                    <h3>Name of Recipe:</h3>
                     <input type="text" value={recipeName} onChange={(e)=>setRecipeName(e.target.value)}/>
-                    {
+                    {/* {
                         errors.recipeName?
                         <p>{errors.recipeName.message}</p>
                         :null
-                    }
-                    <label>Link:</label>
+                    } */}
+                    <h3>Link:</h3>
                     <input type="text" value={recipeLink} onChange={(e)=>setRecipeLink(e.target.value)}/>
-                    {
+                    {/* {
                         errors.recipeLink?
                         <p>{errors.recipeLink.message}</p>
                         :null
-                    }
+                    } */}
                 </div>
                 <div>
-                    <h5>What did you listen to?</h5>
+                    <h3>What did you listen to?</h3>
                     <select value={audioType} onChange={(e)=>setAudioType(e.target.value)}>
                         <option defaultValue hidden>Select an Option</option>
-                        <option value="Playlist">Playlist</option>
-                        <option value="Song">Song</option>
-                        <option value="Audiobook">Audiobook</option>
-                        <option value="Podcast">Podcast</option>
+                        <option value="playlist">Playlist</option>
+                        <option value="song">Song</option>
+                        <option value="audiobook">Audiobook</option>
+                        <option value="podcast">Podcast</option>
                     </select>
-                    <label>Name:</label>
+                    <h3>Name:</h3>
                     <input type="text" value={audioName} onChange={(e)=>setAudioName(e.target.value)}/>
-                    {
+                    {/* {
                         errors.audioName?
                         <p>{errors.audioName.message}</p>
                         :null
-                    }
-                    <label>Link:</label>
+                    } */}
+                    <h3>Link:</h3>
                     <input type="text" value={audioLink} onChange={(e)=>setAudioLink(e.target.value)}/>
-                    {
+                    {/* {
                         errors.audioLink?
                         <p>{errors.audioLink.message}</p>
                         :null
-                    }
+                    } */}
                 </div>
                 <div>
-                    <button>Post</button>
+                    <button className="edit-form-button">Update!</button>
                 </div>
             </form>
         </div>

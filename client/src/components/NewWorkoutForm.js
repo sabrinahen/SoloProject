@@ -97,10 +97,10 @@ const NewWorkoutForm = (props) => {
                     <h5>What did you listen to?</h5>
                     <select value={audioType} onChange={(e)=>setAudioType(e.target.value)}>
                         <option defaultValue hidden>Select an Option</option>
-                        <option value="Playlist">Playlist</option>
-                        <option value="Song">Song</option>
-                        <option value="Audiobook">Audiobook</option>
-                        <option value="Podcast">Podcast</option>
+                        <option value="playlist">Playlist</option>
+                        <option value="song">Song</option>
+                        <option value="audiobook">Audiobook</option>
+                        <option value="podcast">Podcast</option>
                     </select>
                     <h6>Name:</h6>
                     <input type="text" value={audioName} onChange={(e)=>setAudioName(e.target.value)}/>

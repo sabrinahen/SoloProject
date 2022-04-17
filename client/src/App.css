@@ -97,14 +97,14 @@
 }
 
 /* NAVBAR TOP */
-.nav-top {
+.nav-logo {
   background-color: #FFB6C1;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  height: 60px; 
-  padding: 10px;
-  padding-top: 15px;
+  justify-content: left;
+  font-size: 30px;
+  /* height: 60px;  */
+  padding: 15px;
 }
 
 .project-title {
@@ -125,14 +125,14 @@
 
 .nav-bottom-left {
   float: left;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   align-items: center;
   /* padding: 10px; */
   margin: 0px  15px;
   text-decoration: none;
   font-size: 20px;
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -140,7 +140,8 @@
 
 .link {
   text-decoration: none;
-  color: #f2f2f2;
+  color: white;
+  padding: 10px;
   /* margin: 5px 0px; */
 }
 
@@ -173,7 +174,7 @@
   font-size: 18px;
   text-align: center;
   align-items: center;
-  color: #f2f2f2;
+  color: white;
   cursor: pointer;
   font-weight: bolder;
 }
@@ -281,12 +282,113 @@ textarea {
   margin: auto;
   margin-bottom: 10px;
   padding: 5px;
+  overflow: auto;
   /* text-decoration: none; */
 }
 
 .username-link {
   color: #FFB6C1;
 }
+
+/* DISPLAY ONE */
+.display-one {
+  text-align: center;
+  border: 5px solid #FFB6C1;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  width: 40%;
+  font-size: 20px;
+}
+
+.display-one-buttons, .edit-form-button {
+  background-color: #FFB6C1;
+  border: none;
+  width: 15%;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 10px;
+  margin-top: 20px;
+  font-size: 17px;
+  padding: 5px;
+}
+
+.display-one a {
+  color:#FFB6C1;
+}
+
+/* EDIT FORM */
+.edit-form {
+  border: 5px solid #FFB6C1;
+  width: 40%;
+  border-radius: 25px;
+  text-align: center;
+  margin: auto;
+  padding: 20px;
+}
+
+.edit-form h3 {
+  color: #FFB6C1;
+}
+
+/* PROFILE */
+.profile {
+    border: 5px solid #FFB6C1;
+    width: 30%;
+    border-radius: 25px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    overflow: auto;
+    /* text-decoration: none; */
+}
+
+/* .heart {
+  display:inline-block;
+  width: 200px; 
+  aspect-ratio: 1;
+  border-image: radial-gradient(red 69%,#0000 70%) 84.5% fill/100%;
+  clip-path: polygon(-41% 0,50% 91%, 141% 0);
+}
+
+.heart:hover {
+  border-image: #FFB6C1;
+} */
+
+
+  /* .heart-shape{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #FFB6C1;
+  }
+  .heart-shape:before,
+  .heart-shape:after{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #FFB6C1;
+  }
+  .heart-shape:before{
+    bottom: 0px;
+    left: -100px;
+  }
+  .heart-shape:after{
+    top: -100px;
+    right: 0px;
+  } */
 
 /* .App {
   text-align: center;
