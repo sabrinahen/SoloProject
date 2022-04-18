@@ -3,10 +3,11 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom"
 
 
-const OneWorkout = () => {
+const OneWorkout = (props) => {
 
-    // const {socket} = props;
+    const {socket} = props;
     const [workout, setWorkout] = useState([]);
+    const [workoutList, setWorkoutList] = useState([]);
     const [user, setUser] = useState({});
     const [commentList, setCommentList] = useState([]);
     const [comment, setComment] = useState("");
@@ -68,6 +69,35 @@ const OneWorkout = () => {
             })
         }
 
+        // useEffect(() => {
+        //     socket.on("Update_chat_likes", (data) => {
+        //         console.log("our socket updated list", data)
+        //         setWorkoutList(data)
+        //     })
+        // }, [])
+
+        const likeWorkout = (workoutFromBelow) => {
+            axios.put(`http://localhost:8000/api/likes/${workoutFromBelow._id}`,
+                {
+                    likes: workoutFromBelow.likes + 1
+                }
+            )
+                .then((res) => {
+                    console.log(res.data);
+    
+                    let updatedWorkoutList = workoutList.map((workout, index) => {
+                        if (workout === workoutFromBelow) {
+                            let workoutHolder = { ...res.data };
+                            return workoutHolder;
+                        }
+                        return workout;
+                    });
+    
+                    // setWorkoutList(updatedWorkoutList);
+                    socket.emit("Update_chat", updatedWorkoutList)
+                })
+        }
+
     return (
         <div>
         <div className="display-one">
@@ -97,12 +127,16 @@ const OneWorkout = () => {
                     </div>
                     :null
             }
+            <button onClick={() => likeWorkout(workout)} className="like-button">Like! </button>
+            <p>{workout.likes}</p>
             {/* <div className="heart-shape"></div> */}
         </div>
-        <div>
-            <h1>Comments</h1>
-            <textarea rows="5" cols="10" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
-            <button onClick={addAComment}>Add comment!</button>
+
+
+        <div className="comment-input">
+            <h3>Add A Comment</h3>
+            <textarea rows="5" cols="50" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+            <button onClick={addAComment}className="comment-button">Post!</button>
         </div>
         <div>
         {

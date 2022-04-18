@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
+const socket = require('socket.io');
 
 
 //This parses incoming requests with JSON payloads.
@@ -34,4 +35,22 @@ require("./routes/comment.routes")(app)
 
 
 //After connecting to our port (8000), this console.log lets us know we're connected to our server.
-app.listen(process.env.MY_PORT, () => console.log(`You are connected to port ${process.env.MY_PORT}`))
+const server = app.listen(process.env.MY_PORT, () => console.log(`You are connected to port ${process.env.MY_PORT}`))
+
+const io = socket(server, {
+    cors: {
+        origin: '*',
+        methods: ['GET', 'POST'],
+        allowedHeaders: ['*'],
+        credentials: true,
+    }
+})
+
+io.on("connection", (socket) => {
+    console.log("socket.id " + socket.id);
+
+    socket.on("Update_chat", (data) => {
+        console.log("The payload: ", data);
+        io.emit("Update_chat_likes", data);
+    })
+})

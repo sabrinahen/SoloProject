@@ -1,5 +1,6 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {useState, useEffect} from "react";
 import Navbar from './components/Navbar';
 import LoginPage from './components/LoginPage';
 import Home from './views/Home';
@@ -21,10 +22,23 @@ import ProfilePage from './views/ProfilePage';
 import SelectOneWorkout from './views/SelectOneWorkout';
 import EditForm from './views/EditForm';
 import LogReg from './views/LogReg';
+import io from 'socket.io-client';
 
 
 
 function App() {
+
+  const [socket, setSocket] = useState(()=> io(":8000"))
+
+  useEffect(()=>{
+    socket.on("connect", ()=>{
+      console.log("socket in the client: ", socket.id)
+    })
+
+    return () => socket.disconnect(true);
+
+  }, [])
+
   return (
     <BrowserRouter>
     <div className="App">
@@ -43,7 +57,7 @@ function App() {
         <Route element={<NewWorkoutForm/>} path="/workout/new"/>
         <Route element={<EditForm/>} path="/workout/edit/:id"/>
         <Route element={<Community/>} path="/community" />
-        <Route element={<SelectOneWorkout/>} path="/workout/:id" />
+        <Route element={<SelectOneWorkout/>} path="/workout/:id" socket={socket} />
     </Routes>
     </div>
     </BrowserRouter>
