@@ -8,7 +8,8 @@ const WorkoutSchema = new mongoose.Schema({
             "I completed my workout!",
             "I did some of my workout!",
             "I didn't do my workout today."
-        ]
+        ],
+        required: [true, "Please let us know if you finished your workout!"]
         },
 
     completionMessage: {
@@ -55,7 +56,14 @@ const WorkoutSchema = new mongoose.Schema({
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User" 
-    }
+    },
+
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 }, {timestamps: true})
 
 module.exports = mongoose.model("Workout", WorkoutSchema);

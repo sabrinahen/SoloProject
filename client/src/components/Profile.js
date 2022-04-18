@@ -68,7 +68,7 @@ const deleteOneWorkout = (idFromBelow)=>{
             console.log(res);
             console.log(res.data);
             setWorkoutList(workoutList.filter(workout => workout._id !== idFromBelow))
-            navigate("/community")
+            navigate(0)
             
         })
         .catch((err) => console.log(err))

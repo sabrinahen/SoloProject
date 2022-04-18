@@ -39,7 +39,7 @@ const Register = (props) => {
                     confirmPassword: "",
                 });
                 setConfirmReg(
-                    "Thank you for joining our community! Click here to log in!",
+                    "Thank you for joining our community! You can now log in!",
                 );
                 setErrors({});
             })
@@ -52,22 +52,15 @@ const Register = (props) => {
 
 
     return (
-        <div className="log-reg-page">
-            <div className="title-body"> 
-            <h1 class="title">
-                <span class="title-content">Improve Yourself</span>
-                <span class="title-content title-second">With Others</span>
-                <span class="title-content title-third">Join Our Community</span>
-                <span class="title-content title-fourth">At FitGirl Summer</span>
-            </h1>
+        <div className='log-reg-page'>
+            <div>
+            <div style={{display:"flex", justifyContent:"center"}}>
+            <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="40" height="40"/><h1> Join Our Community! </h1><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="40" height="40"/>
             </div>
-
-            <h1>Register</h1>
-            {confirmReg ? <h4 style={{ color: "#FFB6C1" }}>{confirmReg}</h4> : null}
             <div className="log-reg-form">
                 <form onSubmit={register}>
                     <div>
-                        <label>Username</label>
+                        <h3>Username:</h3>
                         {errors.username ? (
                             <span className="error-text">
                                 {errors.username.message}
@@ -82,7 +75,7 @@ const Register = (props) => {
                         />
                     </div>
                     <div>
-                        <label>Email</label>
+                        <h3>Email:</h3>
                         {errors.email ? (
                             <span className="error-text">{errors.email.message}</span>
                         ) : null}
@@ -94,7 +87,7 @@ const Register = (props) => {
                         />
                     </div>
                     <div>
-                        <label>Password</label>
+                        <h3>Password:</h3>
                         {errors.password ? (
                             <span className="error-text">
                                 {errors.password.message}
@@ -108,7 +101,7 @@ const Register = (props) => {
                         />
                     </div>
                     <div>
-                        <label>Confirm Password</label>
+                        <h3>Confirm Password:</h3>
                         {errors.confirmPassword ? (
                             <span className="error-text">
                                 {errors.confirmPassword.message}
@@ -122,9 +115,11 @@ const Register = (props) => {
                         />
                     </div>
                     <div className="center">
-                        <button>Register Me</button>
+                        <button className="log-reg-button">Register</button>
                     </div>
+                    {confirmReg ? <h4 style={{ color: "#FFB6C1" }}>{confirmReg}</h4> : null}
                 </form>
+            </div>
             </div>
         </div>
     )

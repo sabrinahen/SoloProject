@@ -14,4 +14,6 @@ module.exports=(app)=> {
     app.delete("/api/workouts/:id", WorkoutController.deleteOneWorkout);
 
     app.put("/api/workouts/:id", WorkoutController.updateWorkout);
+
+    app.put("/api/likes/:id", WorkoutController.likeWorkout)
 }

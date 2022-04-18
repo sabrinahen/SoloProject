@@ -1,7 +1,9 @@
 const Workout = require("../models/workout.model");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
+const Comment = require("../models/comment.model")
 
+var populateQuery = [{path:'comments', select:'comment likes createdBy'}, {path:'createdBy', select:'username email'} ];
 
 module.exports = {
 
@@ -29,6 +31,7 @@ module.exports = {
     findAllWorkouts: (req, res)=>{
         Workout.find()
             .populate("createdBy", "username email")
+            // .populate(populateQuery)
             .then((allWorkouts)=>{
                 console.log(allWorkouts);
                 res.json(allWorkouts);
@@ -41,7 +44,8 @@ module.exports = {
 
     findOneWorkout: (req, res)=>{
         Workout.findOne({ _id: req.params.id })
-        .populate("createdBy", "username email")
+        .populate(populateQuery)
+        // .populate("createdBy")
             .then((oneWorkout)=>{
                 console.log(oneWorkout);
                 res.json(oneWorkout);
@@ -117,42 +121,17 @@ module.exports = {
 
     },
 
-    // findOneWorkoutByUser: (req, res)=>{
-
-    //     if(req.jwtpayload.username !== req.params.username){
-    //         console.log("not the user");
-
-    //         User.findOne({username: req.params.username})
-    //             .then((userNotLoggedIn)=>{
-    //                 Workout.findOne({createdBy: userNotLoggedIn._id})
-    //                     .populate("createdBy", "username")
-    //                     .then((oneWorkoutsFromUser)=>{
-    //                         console.log(oneWorkoutsFromUser);
-    //                         res.json(oneWorkoutsFromUser);
-    //                     })
-    //             })
-    //             .catch((err)=>{
-    //                 console.log(err);
-    //                 res.status(400).json(err);
-    //             })
-    //     }
-
-    //     else{
-    //         console.log("current user")
-    //         console.log("req.jwtpayload.id:", req.jwtpayload.id);
-    //         Workout.findOne({ createdBy: req.jwtpayload.id })
-    //             .populate("createdBy", "username")
-    //             .then((allWorkoutsFromLoggedInUser) => {
-    //                 console.log(allWorkoutsFromLoggedInUser);
-    //                 res.json(allWorkoutsFromLoggedInUser);
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //                 res.status(400).json(err);
-    //             })
-    //     }
-
-    // }
-
+    likeWorkout: (req, res) => {
+        Workout.findOneAndUpdate({ _id: req.params.id },
+            req.body,
+            { new: true, runValidators: true }
+        )
+            .then((likeAdded) => {
+                res.json(likeAdded)
+            })
+            .catch((err) => {
+                res.status(400).json(err); //See above
+            })
+    }
 
 }

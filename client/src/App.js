@@ -20,6 +20,7 @@ import RestDay from './views/RestDay';
 import ProfilePage from './views/ProfilePage';
 import SelectOneWorkout from './views/SelectOneWorkout';
 import EditForm from './views/EditForm';
+import LogReg from './views/LogReg';
 
 
 
@@ -29,13 +30,14 @@ function App() {
     <div className="App">
     {/* <Navbar/> */}
     <Routes>
-        <Route element={<LoginPage />} path="/"/>
-        <Route element={<Register />} path="/register"/>
+        <Route element={<LogReg />} path="/"/>
+        {/* <Route element={<Register />} path="/register"/> */}
         <Route element={<Home/>} path="/home"/>
-        <Route element={<Legs1/>} path="/workout/legs1"/>
-        <Route element={<Legs2/>} path="/workout/legs2"/>
-        <Route element={<Arms1/>} path="/workout/arms1"/>
-        <Route element={<HIIT1/>} path="/workout/hiit1"/>
+        <Route element={<Legs1/>} path="/workout/sunday"/>
+        <Route element={<Legs2/>} path="/workout/thursday"/>
+        <Route element={<Arms1/>} path="/workout/friday"/>
+        <Route element={<Arms1/>} path="/workout/monday"/>
+        <Route element={<HIIT1/>} path="/workout/tuesday"/>
         <Route element={<RestDay/>} path="/workout/restday"/>
         <Route element={<ProfilePage />} path="/user/profile/:username"/>
         <Route element={<NewWorkoutForm/>} path="/workout/new"/>

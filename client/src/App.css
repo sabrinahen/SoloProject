@@ -12,9 +12,32 @@
 }
 
 /* LOGIN PAGE */
+.login-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #FFB6C1;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.log-reg-display {
+  display: flex;
+  justify-content: space-around;
+}
 .log-reg-page {
   display: flex;
   flex-direction: column;
+  border:#FFB6C1 5px solid;
+  border-radius: 25px;;
+  width: 30%;
+  text-align: center;
+  padding: 10px;
+  /* height: auto; */
+}
+
+.log-reg-form h3{
+  color: #FFB6C1;
 }
 
 .title-body{
@@ -22,6 +45,7 @@
   height: 20%;
   text-align: center;
   display: grid;
+  margin-bottom: 20px;;
 }
 
 .title{
@@ -56,44 +80,80 @@
   }
 }
 
-.log-reg-form {
-
-}
 
 /* CALENDAR */
 
 .calendar-body {
   width: 80%;
   height: 50%;
-  margin: 50px auto;
+  margin: 20px auto;
+  background-color: #FFEFF2;
 }
 
 .month {
   text-align: center;
-  color: black;
+  color: white;
+  background-color: #FFB6C1;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+
+
 .white {
-  color: white;
+  color: #FFEFF2;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  /* margin-bottom: 100px; */
 }
 
 .days {
   text-align: center;
   display: flex;
   justify-content: space-around;
+  font-weight: bolder;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
-.first-week{
+.first-week, .second-week, .third-week, .fourth-week, .fifth-week{
   text-align: center;
   display: flex;
   justify-content: space-around;
   margin-bottom: 100px;
 }
 
-.second-week{
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
+.fifth-week{
+  padding-bottom: 20px;
+}
+
+.calendar-link{
+  text-decoration: none;
+  font-weight: bolder;
+  background-color: white;
+  display: inline-block;
+  border-radius: 50px;
+  width: 60px;
+  line-height: 60px;
+  color:#FFB6C1
+}
+
+.calendar-link:hover{
+  text-decoration: underline;
+  color: black;
+}
+
+.calendar-link1{
+  text-decoration: none;
+  font-weight: bolder;
+  background-color: #FFEFF2;
+  display: inline-block;
+  border-radius: 50px;
+  width: 60px;
+  line-height: 60px;
 }
 
 /* NAVBAR TOP */
@@ -302,10 +362,10 @@ textarea {
   font-size: 20px;
 }
 
-.display-one-buttons, .edit-form-button {
+.display-one-buttons, .edit-form-button, .log-reg-button {
   background-color: #FFB6C1;
   border: none;
-  width: 15%;
+  width: 20%;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -313,6 +373,10 @@ textarea {
   margin-top: 20px;
   font-size: 17px;
   padding: 5px;
+}
+
+.display-one-buttons:hover, .edit-form-button:hover, .log-reg-button:hover {
+  box-shadow: 0 8px 6px 0 rgba(0,0,0,0.2);
 }
 
 .display-one a {

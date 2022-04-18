@@ -30,6 +30,8 @@ require("./routes/workout.routes")(app)
 
 require("./routes/user.routes")(app)
 
+require("./routes/comment.routes")(app)
+
 
 //After connecting to our port (8000), this console.log lets us know we're connected to our server.
 app.listen(process.env.MY_PORT, () => console.log(`You are connected to port ${process.env.MY_PORT}`))

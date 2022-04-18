@@ -33,20 +33,15 @@ const LoginPage = () => {
     };
     
     return (
-        <div >
-            <div className="title-body"> 
-            <h1 class="title">
-                <span class="title-content">Improve Yourself</span>
-                <span class="title-content title-second">With Others</span>
-                <span class="title-content title-third">Join FitGirl Summer</span>
-                <span class="title-content title-fourth">Today</span>
-            </h1>
+        <div className='log-reg-page'>
+            <div style={{display:"flex", justifyContent:"center"}}>
+            <img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="40" height="40"/><h1> Welcome Back! </h1><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="40" height="40"/>
             </div>
-
             <div className="log-reg-form">
+            <p className="error-text">{errorMessage ? errorMessage : ""}</p>
             <form onSubmit={login}>
                 <div>
-                    <label>Email: </label>
+                    <h3>Email: </h3>
                     <input
                         type="text"
                         name="email"
@@ -55,7 +50,7 @@ const LoginPage = () => {
                     />
                 </div>
                 <div>
-                    <label>Password: </label>
+                    <h3>Password: </h3>
                     <input
                         type="password"
                         name="password"
@@ -63,8 +58,7 @@ const LoginPage = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button>Sign In!</button>
-                <h2><Link to={"/register"}>Don't have an account? Click here to join the community!</Link></h2>
+                <button className="log-reg-button">Sign In!</button>
             </form>
             </div>
         </div>

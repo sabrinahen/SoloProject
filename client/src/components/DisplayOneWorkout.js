@@ -5,8 +5,11 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 
 const OneWorkout = () => {
 
+    // const {socket} = props;
     const [workout, setWorkout] = useState([]);
     const [user, setUser] = useState({});
+    const [commentList, setCommentList] = useState([]);
+    const [comment, setComment] = useState("");
 
     const navigate = useNavigate();
 
@@ -18,6 +21,7 @@ const OneWorkout = () => {
                 console.log(res);
                 console.log(res.data);
                 setWorkout(res.data)
+                setCommentList(res.data.messages);
             })
             .catch((err)=>{
                 console.log(err)
@@ -49,8 +53,23 @@ const OneWorkout = () => {
             })
     }, [])
     
+    const addAComment = () => {
+        axios.post("http://localhost:8000/api/comments/",
+            {
+                comment,
+                associatedWorkout: id
+            })
+            .then((res) => {
+                console.log(res.data);
+                setCommentList([res.data, ...commentList ])
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
 
     return (
+        <div>
         <div className="display-one">
             <p><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="20" height="20"/><Link to={`/user/profile/${workout.createdBy?.username}`} className="username-link" style={{fontWeight:"bolder", fontSize:"30px"}}> {workout.createdBy?.username} </Link><img src="https://www.freeiconspng.com/thumbs/sun-icon/sun-icon-31.png" alt="sun" width="20" height="20"/></p>
             <p style={{fontSize:"13px"}}>{new Date(workout.createdAt).toLocaleString()}</p>
@@ -79,6 +98,25 @@ const OneWorkout = () => {
                     :null
             }
             {/* <div className="heart-shape"></div> */}
+        </div>
+        <div>
+            <h1>Comments</h1>
+            <textarea rows="5" cols="10" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+            <button onClick={addAComment}>Add comment!</button>
+        </div>
+        <div>
+        {
+                    commentList ?
+                        commentList.map((comment, index) => (
+                            <div key={index}>
+                                <p style={{fontSize:"12px"}}>{new Date(comment.createdAt).toLocaleString()}</p>
+                                <p>{comment.comment}</p>
+                                {/* <button onClick={() => likeComment(comment)}>Like {comment.likes}</button> */}
+                            </div>
+                        ))
+                        : null
+                }
+        </div>
         </div>
     )
 }
