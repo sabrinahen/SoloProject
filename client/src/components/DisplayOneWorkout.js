@@ -93,8 +93,9 @@ const OneWorkout = (props) => {
                         return workout;
                     });
     
-                    // setWorkoutList(updatedWorkoutList);
-                    socket.emit("Update_chat", updatedWorkoutList)
+                    setWorkoutList(updatedWorkoutList);
+                    navigate(0)
+                    // socket.emit("Update_chat", updatedWorkoutList)
                 })
         }
 

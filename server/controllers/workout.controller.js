@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 const Comment = require("../models/comment.model")
 
-var populateQuery = [{path:'comments', select:'comment likes createdBy'}, {path:'createdBy', select:'username email'} ];
+var populateQuery = [{path:'comments', select:'comment likes createdBy associatedWorkout'}, {path:'createdBy', select:'username email'} ];
 
 module.exports = {
 
@@ -61,7 +61,8 @@ module.exports = {
             req.body,
             {new: true, runValidators: true}
             )
-            .populate("createdBy", "username email")
+            // .populate("createdBy", "username email")
+            .populate(populateQuery)
             .then((updatedWorkout)=>{
                 console.log(updatedWorkout)
                 res.json(updatedWorkout)
