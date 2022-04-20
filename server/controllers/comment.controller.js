@@ -27,13 +27,22 @@ module.exports = {
 
     createNewComment:  (req, res)=>{
 
+        console.log("!!!!!!!!!!!")
+        console.log(req.body)
+        const {associatedWorkout} = req.body
         Comment.create(req.body)
             .then((commentPosted)=>{
                 console.log(commentPosted);
-                
-                Workout.findOneAndUpdate({_id: req.params.id},
+                // const workout = Workout.findOne({_id: req.params.id})
+                // workout.comments.push(commentPosted)
+                // workout.save()
+                console.log('================')
+                // console.log(workout)
+                // console.log(req.params.id)
+                // Workout.findOne({_id: req.params.id}).then(returnedWorkout => console.log(returnedWorkout))
+                Workout.findOneAndUpdate({_id: associatedWorkout},
                     {
-                        $addToSet: {comments: commentPosted._id}
+                        $push: {comments: commentPosted._id}
                     },
                     {
                         new: true,

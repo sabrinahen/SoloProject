@@ -30,8 +30,8 @@ module.exports = {
 
     findAllWorkouts: (req, res)=>{
         Workout.find()
-            .populate("createdBy", "username email")
-            // .populate(populateQuery)
+            // .populate("createdBy", "username email")
+            .populate(populateQuery)
             .then((allWorkouts)=>{
                 console.log(allWorkouts);
                 res.json(allWorkouts);

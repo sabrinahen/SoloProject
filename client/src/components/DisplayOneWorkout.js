@@ -11,6 +11,7 @@ const OneWorkout = (props) => {
     const [user, setUser] = useState({});
     const [commentList, setCommentList] = useState([]);
     const [comment, setComment] = useState("");
+    const [createdBy, setCreatedBy] = useState("")
 
     const navigate = useNavigate();
 
@@ -20,9 +21,10 @@ const OneWorkout = (props) => {
         axios.get(`http://localhost:8000/api/workouts/${id}`)
             .then ((res)=> {
                 console.log(res);
+                console.log("$$$$$$$")
                 console.log(res.data);
                 setWorkout(res.data)
-                setCommentList(res.data.messages);
+                setCommentList(res.data.comments);
             })
             .catch((err)=>{
                 console.log(err)
@@ -58,11 +60,14 @@ const OneWorkout = (props) => {
         axios.post("http://localhost:8000/api/comments/",
             {
                 comment,
-                associatedWorkout: id
+                associatedWorkout: id,
+                createdBy: user.username
             })
             .then((res) => {
                 console.log(res.data);
-                setCommentList([res.data, ...commentList ])
+                console.log("!!!!!!!!!!!!!")
+                console.log(commentList)
+                setCommentList([...commentList, res.data ])
             })
             .catch((err) => {
                 console.log(err);
@@ -134,8 +139,58 @@ const OneWorkout = (props) => {
         </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div className="comment-input">
             <h3>Add A Comment</h3>
+            <p>{user.username}</p>
             <textarea rows="5" cols="50" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
             <button onClick={addAComment}className="comment-button">Post!</button>
         </div>
@@ -144,6 +199,7 @@ const OneWorkout = (props) => {
                     commentList ?
                         commentList.map((comment, index) => (
                             <div key={index}>
+                                <p>{comment.createdBy}</p>
                                 <p style={{fontSize:"12px"}}>{new Date(comment.createdAt).toLocaleString()}</p>
                                 <p>{comment.comment}</p>
                                 {/* <button onClick={() => likeComment(comment)}>Like {comment.likes}</button> */}
