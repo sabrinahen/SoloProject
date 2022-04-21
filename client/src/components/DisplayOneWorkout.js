@@ -138,71 +138,20 @@ const OneWorkout = (props) => {
             {/* <div className="heart-shape"></div> */}
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div className="comment-input">
             <h3>Add A Comment</h3>
             <p>{user.username}</p>
             <textarea rows="5" cols="50" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
             <button onClick={addAComment}className="comment-button">Post!</button>
         </div>
-        <div>
+        <div className="comment-section">
         {
                     commentList ?
                         commentList.map((comment, index) => (
-                            <div key={index}>
-                                <p>{comment.createdBy}</p>
-                                <p style={{fontSize:"12px"}}>{new Date(comment.createdAt).toLocaleString()}</p>
+                            <div key={index} className="actual-comment">
+                                <p style={{fontWeight: "bolder", color: "#FFB6C1"}}>{comment.createdBy}</p>
+                                {/* <p style={{fontSize:"12px"}}>{new Date(comment.createdAt).toLocaleString()}</p> */}
                                 <p>{comment.comment}</p>
-                                {/* <button onClick={() => likeComment(comment)}>Like {comment.likes}</button> */}
                             </div>
                         ))
                         : null
@@ -213,3 +162,6 @@ const OneWorkout = (props) => {
 }
 
 export default OneWorkout
+
+
+{/* <p style={{fontSize:"12px"}}>{new Date(comment.createdAt).toLocaleString()}</p> */}
