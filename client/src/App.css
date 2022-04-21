@@ -439,6 +439,25 @@ textarea {
   box-shadow: 0 8px 6px 0 rgba(0,0,0,0.2);
 }
 
+.comment-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: #FFB6C1 5px solid; */
+}
+
+.actual-comment {
+  border: #FFB6C1 5px solid;
+  width: 25%;
+  margin-top: 20px;
+  border-radius: 25px;;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* .heart {
   display:inline-block;
   width: 200px; 
