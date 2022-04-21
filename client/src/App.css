@@ -450,13 +450,14 @@ textarea {
 
 .actual-comment {
   border: #FFB6C1 5px solid;
-  width: 25%;
+  width: 20%;
   margin-top: 20px;
   border-radius: 25px;;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 /* .heart {
   display:inline-block;
