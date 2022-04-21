@@ -162,6 +162,3 @@ const OneWorkout = (props) => {
 }
 
 export default OneWorkout
-
-
-{/* <p style={{fontSize:"12px"}}>{new Date(comment.createdAt).toLocaleString()}</p> */}
