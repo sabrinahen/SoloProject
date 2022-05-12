@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema({
 
     username: {
         type: String,
-        required: [true, "Username is required"]
+        required: [true, "Username is required"],
+        minLength: [8, "Username MUST be at least 3 characters"]
     },
 
     email: {

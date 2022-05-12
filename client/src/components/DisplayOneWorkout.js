@@ -112,7 +112,7 @@ const OneWorkout = (props) => {
             <p style={{fontWeight:"bolder"}}>{workout.completionMessage}</p>
             {
                 workout.recipeName?
-                <p>Here's the <a href="{workout.recipeLink}">{workout.recipeName}</a> I made!</p>
+                <p>Here's the <a href={workout.recipeLink}>{workout.recipeName}</a> I made!</p>
                 :null
             }
             {
@@ -122,7 +122,7 @@ const OneWorkout = (props) => {
             }
             {
                 workout.audioName?
-                    <p><a href="{workout.audioLink}">{workout.audioName}</a></p>
+                    <p><a href={workout.audioLink}>{workout.audioName}</a></p>
                     :null
             }
             {
